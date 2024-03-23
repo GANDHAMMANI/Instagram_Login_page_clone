@@ -1,0 +1,205 @@
+
+window.onload = function() {
+    // Hiding  the password field and set initial eye icon state to slashed
+    var x = document.getElementById("password");
+    var eyeIcon = document.getElementById("eye-icon");
+    x.classList.add("hidden-password");
+    eyeIcon.classList.add("fa-eye-slash");
+    eyeIcon.style.color = "white"; 
+};
+
+function togglePassword() {
+    var x = document.getElementById("password");
+    var eyeIcon = document.getElementById("eye-icon");
+    
+    if (x.classList.contains("hidden-password")) {
+        x.type = "text";
+        x.classList.remove("hidden-password");
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+        eyeIcon.style.color = "aqua"; 
+    } else {
+        x.type = "password";
+        x.classList.add("hidden-password");
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+        eyeIcon.style.color = "white"; 
+    }
+}
+
+// language changing
+document.getElementById('language-select').addEventListener('change', function () {
+    var language = this.value;
+    translatePage(language);
+});
+
+function translatePage(language) {
+    var translations = {
+        en: {
+            login_details: "Forgot your login credentials?",
+            get_help: "Get help with logging in.",
+            or: "____________________OR____________________",
+            log_in_facebook: "Log in with Facebook",
+            forgot_password: "Forgot Password?",
+            no_account: "Don't have an account?",
+            sign_up: "Sign UP",
+            login_button: "Log In",
+            phone_email_placeholder: "Phone number, email address, or username",
+            password_placeholder: "Password"
+        },
+        te: {
+            login_details: "మీ లాగిన్ వివరాలను మర్చిపోయారా?",
+            get_help: "లాగింగ్ ఇన్ చేస్తున్నప్పుడు సహాయం పొందండి.",
+            or: "____________________లేదా____________________",
+            log_in_facebook: "ఫేస్‌బుక్‌తో లాగిన్ చేయండి",
+            forgot_password: "పాస్‌వర్డ్ మర్చిపోయారా?",
+            no_account: "మీకు ఖాతా లేదా?",
+            sign_up: "నమోదు చేయండి",
+            login_button: "లాగిన్",
+            phone_email_placeholder: "ఫోన్ నంబర్, ఇమెయిల్ చిరునామా లేదా యూజర్ పేరు",
+            password_placeholder: "పాస్‌వర్డ్"
+        },
+        fr: {
+            login_details: "Avez-vous oublié vos identifiants?",
+            get_help: "Obtenez de l'aide pour vous connecter.",
+            or: "____________________OU____________________",
+            log_in_facebook: "Se connecter avec Facebook",
+            forgot_password: "Mot de passe oublié?",
+            no_account: "Vous n'avez pas de compte?",
+            sign_up: "S'inscrire",
+            login_button: "Connexion",
+            phone_email_placeholder: "Numéro de téléphone, adresse e-mail ou nom d'utilisateur",
+            password_placeholder: "Mot de passe"
+        },
+        es: {
+            login_details: "¿Olvidaste tus detalles de inicio de sesión?",
+            get_help: "Obtén ayuda para iniciar sesión.",
+            or: "____________________O____________________",
+            log_in_facebook: "Iniciar sesión con Facebook",
+            forgot_password: "¿Olvidó su contraseña?",
+            no_account: "¿No tienes una cuenta?",
+            sign_up: "Regístrate",
+            login_button: "Iniciar sesión",
+            phone_email_placeholder: "Número de teléfono, dirección de correo electrónico o nombre de usuario",
+            password_placeholder: "Contraseña"
+        },
+        zh: {
+            login_details: "忘记了您的登录详细信息？",
+            get_help: "获取登录帮助。",
+            or: "____________________或____________________",
+            log_in_facebook: "使用Facebook登录",
+            forgot_password: "忘记密码？",
+            no_account: "没有账号？",
+            sign_up: "注册",
+            login_button: "登录",
+            phone_email_placeholder: "电话号码、电子邮件地址或用户名",
+            password_placeholder: "密码"
+        },
+        ja: {
+            login_details: "ログインの詳細をお忘れですか？",
+            get_help: "ログインに関するヘルプを入手してください。",
+            or: "____________________または____________________",
+            log_in_facebook: "Facebookでログイン",
+            forgot_password: "パスワードをお忘れですか？",
+            no_account: "アカウントをお持ちではありませんか？",
+            sign_up: "サインアップ",
+            login_button: "ログイン",
+            phone_email_placeholder: "電話番号、メールアドレス、またはユーザー名",
+            password_placeholder: "パスワード"
+        },
+        it: {
+            login_details: "Hai dimenticato i tuoi dati di accesso?",
+            get_help: "Ottieni assistenza per l'accesso.",
+            or: "____________________O____________________",
+            log_in_facebook: "Accedi con Facebook",
+            forgot_password: "Password dimenticata?",
+            no_account: "Non hai un account?",
+            sign_up: "Registrati",
+            login_button: "Accesso",
+            phone_email_placeholder: "Numero di telefono, indirizzo email o nome utente",
+            password_placeholder: "Password"
+        },
+        hi: {
+            login_details: "क्या आप अपना लॉगिन विवरण भूल गए हैं?",
+            get_help: "लॉगिन करने में मदद प्राप्त करें।",
+            or: "____________________या____________________",
+            log_in_facebook: "फेसबुक के साथ लॉग इन करें",
+            forgot_password: "पासवर्ड भूल गए?",
+            no_account: "क्या आपके पास खाता नहीं है?",
+            sign_up: "साइन अप करें",
+            login_button: "लॉगिन",
+            phone_email_placeholder: "फ़ोन नंबर, ईमेल पता या उपयोगकर्ता नाम",
+            password_placeholder: "पासवर्ड"
+        }
+    };
+
+    // text content based on language selection
+    document.getElementById('forgotDetails').textContent = translations[language].login_details;
+    document.getElementById('helpLink').textContent = translations[language].get_help;
+    document.querySelector('.c1').getElementsByTagName('p')[0].textContent = translations[language].or;
+    document.getElementById('loginFacebook').textContent = translations[language].log_in_facebook;
+    document.getElementById('noAccount').innerHTML = translations[language].no_account + "<a href='https://www.instagram.com/accounts/emailsignup/' style='color:aqua'>" + translations[language].sign_up + "</a>";
+    document.getElementById('loginButton').textContent = translations[language].login_button;
+    document.getElementById('loginInput').setAttribute('placeholder', translations[language].phone_email_placeholder);
+    document.getElementById('password').setAttribute('placeholder', translations[language].password_placeholder);
+}
+
+
+// Initial translation based on default language selection
+translatePage(document.getElementById('language-select').value);
+
+
+// Function to handle input events for both login input and password input
+function handleInput() {
+    var loginInput = document.getElementById("loginInput").value;
+    var passwordInput = document.getElementById("password").value;
+    var loginButton = document.getElementById("loginButton");
+
+    if (loginInput.trim() !== "" && passwordInput.trim() !== "") {
+        loginButton.disabled = false;
+        loginButton.classList.add("active");
+    } else {
+        loginButton.disabled = true;
+        loginButton.classList.remove("active");
+    }
+}
+
+// Function to handle form submission
+function handleSubmit(event) {
+    
+    event.preventDefault();
+
+    // Show the modal
+    modal.style.display = "block";
+}
+
+// Adding the  event listeners for input events on login input and password input
+document.getElementById("loginInput").addEventListener("input", handleInput);
+document.getElementById("password").addEventListener("input", handleInput);
+
+// Adding the  event listener 
+document.getElementById("instaform").addEventListener("submit", handleSubmit);
+
+
+var modal = document.getElementById("myModal");
+
+
+var btn = document.getElementById("loginButton");
+
+var span = document.getElementsByClassName("close")[0];
+
+
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

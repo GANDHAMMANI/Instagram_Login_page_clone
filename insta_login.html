@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insta_login_page_clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="insta_style.css">
+    <script src="insta_language.json" defer></script>
+</head>
+
+<body>
+<div id="container">
+    <select id="language-select">
+        <option value="en">English(United Kingdom)</option>
+        <option value="te">Telugu</option>
+        <option value="fr">French</option>
+        <option value="es">Spanish</option>
+        <option value="zh">Chinese</option>
+        <option value="ja">Japanese</option>
+        <option value="it">Italian</option>
+        <option value="hi">Hindi</option>
+    </select>
+    <br>
+    <br>
+    
+    <h1>Instagram</h1><br>
+    <form id="instaform" action='' method='post' class="center">
+        <input type="text" or type="email" id="loginInput" placeholder=""><br><br>
+        <div class="password-field">
+            <input type="password" id="password" class="hidden-password" placeholder="">
+            
+            <label class="toggle-password" onclick="togglePassword()">
+                <i id="eye-icon" class="fas fa-eye"></i>
+            </label>
+        </div>
+        <br><br>
+        <button id="loginButton" disabled>Log In</button><br><br> <!-- Disabled the button by default -->
+    </form>
+    <div class="c1">
+        <b id="forgotDetails"></b><a id="helpLink" href="https://help.instagram.com/">Get help with logging in.</a><br><br><br>
+        <p style="color:white;">____________________OR____________________</p><br>
+    </div>
+    <div class='fc' style="display: flex; flex-direction: column; align-items: center;">
+        <div style="display: flex; align-items: center;">
+            <i class="fab fa-facebook" style="color: blue; margin-right: 10px; font-size: 38px;"></i>
+            <p style='color:rgb(14, 138, 234);'> <a  id="loginFacebook" href="https://www.facebook.com/">Log in with Facebook</a></p>
+        </div>
+        <br>
+    </div>
+    <div class="c3">
+        <p style='color:white' id="noAccount"></p>
+    </div>
+</div>
+
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+    <span class="close">&times;</span>
+    <p><h3>Username Not Found</h3>
+        <h5>We couldn't find an account with the username siva check the username you've entered and try again</h5></p>
+    </div>
+</div>
+</body>
+</html>
